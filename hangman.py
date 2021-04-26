@@ -1,6 +1,7 @@
 import urllib.request
 import random
 import os
+import hangman_art
 
 # create a variable to hole the remote word list url
 word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
@@ -21,11 +22,12 @@ win = False
 lives = 6
 
 while not win:
-    # prompt player to guess a letter
+    # prompt player to guess a letter and display current stats
+    print(hangman_art.logo)
+    player_letter = input("\nGuess a letter: ").lower()
     for blank in blanks:
         print(blank + " ", end="")
     print(f"\nLives: {lives}")
-    player_letter = input("\nGuess a letter: ").lower()
     
     os.system('cls' if os.name == 'nt' else 'clear')
 
