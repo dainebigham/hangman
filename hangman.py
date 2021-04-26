@@ -21,24 +21,24 @@ blanks = ['_'] * word_length
 win = False
 lives = 6
 
+print(hangman_art.logo)
+
 while not win:
     # prompt player to guess a letter and display current stats
-    print(hangman_art.logo)
+    # os.system('cls' if os.name == 'nt' else 'clear')
     player_letter = input("\nGuess a letter: ").lower()
-    for blank in blanks:
-        print(blank + " ", end="")
-    print(f"\nLives: {lives}")
-    
-    os.system('cls' if os.name == 'nt' else 'clear')
 
     # loop through the letters in the word creating an index (i) with enumerate function
     for i, letter in enumerate(word):
         # if letter at current position is same as players, access blanks at current index and replace with letter
         if letter == player_letter:
             blanks[i] = player_letter
-    # if players guess is not in the word, lose a life
+    # if players guess is not in the word, lose a life and print ASCII art for hanging man
     if player_letter not in word:
         lives -= 1
+        print(f"The letter {player_letter} is not in the word, try again...")
+        print(hangman_art.stages[lives])
+
     # if blanks array has no more blanks, set win to True
     if '_' not in blanks:
         win = True
