@@ -9,8 +9,7 @@ word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
 # open the url, read/decode it, and split the string into a list of words
 response = urllib.request.urlopen(word_site)
 text = response.read().decode()
-# words = text.splitlines()
-words = ['aardvark', 'bison', 'cat']
+words = text.splitlines()
 
 # choose a word from the list at random and create a list of blanks of the same length
 word = random.choice(words)
