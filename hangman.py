@@ -13,7 +13,6 @@ words = text.splitlines()
 
 # choose a word from the list at random and create a list of blanks of the same length
 word = random.choice(words)
-print(f"Psst, the chosen word is {word}")
 word_length = len(word)
 blanks = ['_'] * word_length
 guesses = []
@@ -48,7 +47,7 @@ def main():
         # if player has had 6 wrong guesses, break and end game
         if lives == 0:
             player_screen(lives)
-            print("You lose")
+            print(f"You lose. The answer was {word}")
             break
 
 # function to print the player screen 
